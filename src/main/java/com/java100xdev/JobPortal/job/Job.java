@@ -1,13 +1,22 @@
 package com.java100xdev.JobPortal.job;
 
-public class Job {
+import jakarta.persistence.*;
+import org.springframework.jdbc.core.metadata.HsqlTableMetaDataProvider;
 
+@Entity
+@Table(name = "Job_Table")
+public class Job {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
     private String title;
     private String jobDescription;
     private String location;
     private int minSalary;
     private int maxSalary;
+
+    public Job() {
+    }
 
     public Job(int id, String title, String jobDescription, String location, int minSalary, int maxSalary) {
         this.id = id;
